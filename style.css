@@ -1,0 +1,182 @@
+/* Global settings */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-weight: bold;
+  background-color: #1A1A1A;
+  color: #EEE; /* set text color to white */
+}
+
+/* Links */
+a,
+:link {
+  color: #2196f3;
+  font-weight: bold;
+}
+
+
+a:hover{
+  color: #AAA;
+}
+
+/* Navigation bar */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background-color: #333;
+  color: #EEE;
+}
+
+nav a {
+  color: #EEE;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+nav a:hover {
+  color: #AAA;
+}
+
+/* Logo */
+#header-logo {
+  width: 5em;
+  transition-duration: 1s;
+}
+
+/* Navigation */
+#nav-navigation {
+  display: flex;
+}
+
+#nav-navigation p {
+  padding: 0 1em;
+}
+
+/* Sections */
+section {
+  max-width: 40em;
+  margin: auto;
+  padding: 1em 3em;
+  border: 1px solid #DADADA;
+  border-radius: 1em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+section h1 {
+  text-align: center;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+}
+
+.indented {
+  padding-left: 2em;
+}
+
+#last-update {
+  text-align: center;
+  font-size: 0.7em;
+  color: gray;
+}
+
+#link-github {
+  word-break: break-word;
+}
+
+.version-tag {
+  font-size: 0.8em;
+  color: gray;
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    padding: 0.5rem;
+    width: auto;
+    
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+
+  section {
+    padding: 0.5em;
+  }
+
+  #nav-navigation {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Accordion */
+.accordion {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  margin-bottom: 1em;
+  transition: 0.4s;
+  }
+  
+  .accordion-header {
+  font-weight: bold;
+  cursor: pointer;
+  }
+  
+  .accordion-content {
+  overflow: hidden;
+  }
+  
+  .active .accordion-content {
+  display: block;
+  }
+  
+  /* Nested accordion */
+  .indented .accordion-header {
+  font-weight: normal;
+  }
+  
+  .indented .accordion-content {
+  padding-left: 2em;
+  }
+  
+  .indented .active .accordion-content {
+  padding-left: 2em;
+  }
+  
+  @media (max-width: 600px) {
+  nav {
+  flex-direction: column;
+  padding: 0.5rem;
+  width: auto;
+  }
+  
+  nav a {
+  margin: 0.5rem 0;
+  }
+  
+  section {
+  padding: 0.5em;
+  }
+  
+  #nav-navigation {
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  .indented .accordion-content {
+  padding-left: 1em;
+  }
+  
+  .indented .active .accordion-content {
+  padding-left: 1em;
+  }
+  }
