@@ -1,5 +1,5 @@
 # davidesgrazzutti.github.io
 
-pagina di prova
+Progetti personali 
 
-http://davidesgrazzutti.github.io/
+[- Notes App](https://github.com/davidesgrazzutti/angular-notes-app)
