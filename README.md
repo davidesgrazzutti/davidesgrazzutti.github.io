@@ -1,7 +1,18 @@
-# davidesgrazzutti.github.io
+# 💼 Portfolio – Davide Sgrazzutti
 
-Progetti personali 
+Benvenuto nel repository del mio portfolio personale, pubblicato tramite **GitHub Pages** e visibile online qui:
 
-[- Notes App (React version)](https://github.com/davidesgrazzutti/notes-app-react)
+👉 **https://davidesgrazzutti.github.io/**
 
-[- Notes App (Angular version)](https://github.com/davidesgrazzutti/angular-notes-app)
+Il sito presenta una selezione dei miei progetti GitHub, le tecnologie che utilizzo e i miei contatti professionali.
+
+---
+
+## 📬 Contatti
+
+Se vuoi contattarmi per collaborazioni o proposte di lavoro:
+
+- **GitHub:** https://github.com/davidesgrazzutti
+- **Email:** davidesgrazzutti@gmail.com
+
+Grazie per aver visitato il mio portfolio 😊
