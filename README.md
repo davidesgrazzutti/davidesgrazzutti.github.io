@@ -13,6 +13,6 @@ Il sito presenta una selezione dei miei progetti GitHub, le tecnologie che utili
 Se vuoi contattarmi per collaborazioni o proposte di lavoro:
 
 - **GitHub:** https://github.com/davidesgrazzutti
-- **Email:** davidesgrazzutti@gmail.com
+- **Email:** sgrazzuttidavide@gmail.com
 
 Grazie per aver visitato il mio portfolio 😊
