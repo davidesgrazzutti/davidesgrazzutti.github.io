@@ -1,34 +1,407 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Davide Sgrazzutti - Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Davide Sgrazzutti</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --bg-soft: #111827;
+        --card-bg: #020617;
+        --accent: #38bdf8;
+        --accent-soft: rgba(56, 189, 248, 0.1);
+        --text: #e5e7eb;
+        --text-soft: #9ca3af;
+        --border: #1f2933;
+      }
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="img/sweg_logo.png">
-</head>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+      }
 
-<body>
-  <nav>
-    <div id="nav-navigation">
+      body {
+        background: radial-gradient(circle at top, #1e293b, #020617 55%);
+        color: var(--text);
+        min-height: 100vh;
+      }
 
-    </div>
-  </nav>
-  
-<section style="margin-top: 45px;">
-  <h1>Davide Sgrazzutti</h1>
-    <p>Progetti personali da me realizzati</p>
-      <ul>
-        <li><a href="https://github.com/davidesgrazzutti/notes-app-react">Notes App (React version)</a></li>
-        <li><a href="https://github.com/davidesgrazzutti/angular-notes-app">Notes App (Angular version)</a></li>
-      </ul>
-  </section>
+      .page {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+      }
 
-    
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
 
-</body>
+      .tagline {
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
 
+      .title {
+        font-size: clamp(2rem, 4vw, 2.6rem);
+        font-weight: 700;
+      }
+
+      .subtitle {
+        color: var(--text-soft);
+        max-width: 580px;
+        line-height: 1.5;
+        font-size: 0.98rem;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+      }
+
+      .chip {
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        color: var(--text-soft);
+        background: rgba(15, 23, 42, 0.8);
+      }
+
+      .section-title {
+        margin-top: 32px;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+
+      .section-subtitle {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+        margin-bottom: 16px;
+      }
+
+      /* PROGETTI */
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+
+      .project-card {
+        background: linear-gradient(145deg, #020617, #020617);
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        padding: 16px 16px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-pill {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        background: var(--accent-soft);
+        color: var(--accent);
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(56, 189, 248, 0.35);
+      }
+
+      .project-title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .project-desc {
+        font-size: 0.88rem;
+        color: var(--text-soft);
+        line-height: 1.45;
+      }
+
+      .project-meta {
+        font-size: 0.78rem;
+        color: var(--text-soft);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .project-tag {
+        font-size: 0.75rem;
+        border-radius: 999px;
+        padding: 2px 8px;
+        border: 1px solid var(--border);
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      .project-links {
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .btn-link {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+      }
+
+      .btn-link:hover {
+        background: var(--accent-soft);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+      }
+
+      .btn-link.secondary {
+        border-color: var(--border);
+        color: var(--text-soft);
+      }
+
+      .btn-link.secondary:hover {
+        background: rgba(15, 23, 42, 0.9);
+      }
+
+      /* CONTATTI */
+
+      .contacts {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .contact-item {
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
+
+      .contact-item a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      .contact-item a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 0.75rem;
+        color: var(--text-soft);
+        border-top: 1px solid #111827;
+        padding-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <!-- HEADER / HERO -->
+      <header>
+        <div>
+          <div class="tagline">Portfolio</div>
+          <h1 class="title">Davide Sgrazzutti</h1>
+        </div>
+        <p class="subtitle">
+          Frontend Developer e .NET developer. Mi piace costruire applicazioni
+          web e mobile performanti, soprattutto con React / React Native e
+          backend in C#/.NET o Node.js.
+        </p>
+
+        <div class="chips">
+          <span class="chip">React &amp; React Native</span>
+          <span class="chip">C# / ASP.NET</span>
+          <span class="chip">API REST</span>
+          <span class="chip">GitHub &amp; Dev Tools</span>
+        </div>
+      </header>
+
+      <!-- SEZIONE PROGETTI -->
+      <section>
+        <h2 class="section-title">Progetti GitHub selezionati</h2>
+        <p class="section-subtitle">
+          Una selezione dei progetti su cui ho lavorato recentemente. Molti
+          sono open source e liberamente scaricabili da GitHub.
+        </p>
+
+        <div class="projects-grid">
+          <!-- PROJECT 1 -->
+          <article class="project-card">
+            <span class="project-pill">Fullstack</span>
+            <h3 class="project-title">GestionePuntiVendita</h3>
+            <p class="project-desc">
+              Applicazione backend in C#/.NET per la gestione di punti vendita:
+              prodotti, scontrini, reportistica e API REST documentate con
+              Swagger.
+            </p>
+            <div class="project-meta">
+              Ruolo: Sviluppo completo backend + struttura API
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">C#</span>
+              <span class="project-tag">.NET</span>
+              <span class="project-tag">EF Core</span>
+              <span class="project-tag">SQLite</span>
+              <span class="project-tag">Swagger</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="btn-link"
+                href="https://github.com/davidesgrazzutti/GestionePuntiVendita"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Codice</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project-card">
+            <span class="project-pill">Mobile</span>
+            <h3 class="project-title">Calcio Calendar</h3>
+            <p class="project-desc">
+              App mobile in React Native per consultare il calendario della
+              Serie A: filtro per giornata, modalità light/dark, backend .NET
+              pubblicato su Render.
+            </p>
+            <div class="project-meta">
+              Ruolo: Sviluppo front-end mobile + integrazione API
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Expo</span>
+              <span class="project-tag">.NET API</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="btn-link"
+                href="https://github.com/davidesgrazzutti/calcio-calendar"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Codice</span>
+                <span>↗</span>
+              </a>
+              <!-- se hai una demo web/APK mettila qui -->
+              <!--
+              <a class="btn-link secondary" href="LINK_DEMO" target="_blank" rel="noopener noreferrer">
+                <span>Demo</span>
+                <span>▶</span>
+              </a>
+              -->
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project-card">
+            <span class="project-pill">Dashboard</span>
+            <h3 class="project-title">Dashboard Gmail / React</h3>
+            <p class="project-desc">
+              Dashboard in React + .NET per visualizzare email, statistiche e
+              widget personalizzati, con integrazione alle API di Gmail.
+            </p>
+            <div class="project-meta">
+              Ruolo: Architettura fullstack e sviluppo
+            </div>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">ASP.NET</span>
+              <span class="project-tag">REST API</span>
+            </div>
+            <div class="project-links">
+              <a
+                class="btn-link"
+                href="https://github.com/davidesgrazzutti"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>Repository</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Aggiungi altri progetti copiando il blocco .project-card -->
+        </div>
+      </section>
+
+      <!-- SEZIONE CONTATTI -->
+      <section>
+        <h2 class="section-title">Contatti</h2>
+        <p class="section-subtitle">
+          Per collaborazioni, proposte di lavoro o domande sui progetti:
+        </p>
+        <div class="contacts">
+          <div class="contact-item">
+            📧 Email:
+            <a href="mailto:davidesgrazzutti@example.com">
+              davidesgrazzutti@example.com
+            </a>
+          </div>
+          <div class="contact-item">
+            🐙 GitHub:
+            <a href="https://github.com/davidesgrazzutti" target="_blank">
+              github.com/davidesgrazzutti
+            </a>
+          </div>
+          <!-- Se hai LinkedIn:
+          <div class="contact-item">
+            💼 LinkedIn:
+            <a href="https://www.linkedin.com/in/TUO-USERNAME" target="_blank">
+              linkedin.com/in/TUO-USERNAME
+            </a>
+          </div>
+          -->
+        </div>
+      </section>
+
+      <footer>
+        <span>© <span id="year"></span> Davide Sgrazzutti</span>
+        <span>Built with HTML &amp; CSS</span>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent =
+        new Date().getFullYear().toString();
+    </script>
+  </body>
 </html>
